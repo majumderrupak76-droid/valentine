@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Disa ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff6f91, #ffb3c6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Comic Sans MS', cursive;
+        overflow: hidden;
+    }
+
+    .box {
+        background: white;
+        width: 90%;
+        max-width: 360px;
+        padding: 30px 20px;
+        border-radius: 24px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        color: #ff3b6f;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px 26px;
+        font-size: 18px;
+        border-radius: 14px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    #yes {
+        background: #ff3b6f;
+        color: white;
+    }
+
+    #no {
+        background: #e5e5e5;
+        color: #555;
+        position: fixed;
+        z-index: 5;
+    }
+
+    #message {
+        display: none;
+        color: #ff3b6f;
+        font-size: 17px;
+        line-height: 1.6;
+        animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .whatsapp {
+        background: #25D366;
+        color: white;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body onclick="startMusic()">
+
+<!-- 🎵 MUSIC -->
+<audio id="music" loop autoplay>
+    <!-- Put lightning.mp3 in same folder -->
+    <source src="lightning.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+    <h1>Disa 💖</h1>
+    <p>Before you try to say no…<br>I just want to ask you one thing 🌸</p>
+
+    <p><strong>Will you be my Valentine?</strong> 💘</p>
+
+    <button id="yes" onclick="showLove()">YES 💕</button>
+    <button id="no">NO 🙈</button>
+
+    <div id="message">
+        💖 💖 💖<br><br>
+        Disa,<br><br>
+        From the moment you came into my life,  
+        love felt easier, smiles felt warmer,  
+        and every day felt brighter ✨<br><br>
+
+        You are my favorite thought,  
+        my comfort, my calm, and my chaos —  
+        all at the same time 💕<br><br>
+
+        Thank you for choosing me today  
+        and for being you, always ❤️<br><br>
+
+        With all my love,<br>
+        <strong>Rupak 💘</strong>
+
+        <br><br>
+        <button class="whatsapp" onclick="openWhatsApp()">
+            💬 Send “I love you”
+        </button>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    function runAway() {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // NO button ALWAYS escapes
+    noBtn.addEventListener("mouseover", runAway);
+    noBtn.addEventListener("mousedown", runAway);
+    noBtn.addEventListener("touchstart", runAway);
+    noBtn.addEventListener("click", runAway);
+
+    function showLove() {
+        document.querySelectorAll("h1, p, #yes, #no").forEach(el => el.style.display = "none");
+        document.getElementById("message").style.display = "block";
+    }
+
+    function openWhatsApp() {
+        const text = encodeURIComponent("I love you ❤️");
+        window.location.href = `https://wa.me/?text=${text}`;
+    }
+
+    function startMusic() {
+        document.getElementById("music").play();
+    }
+</script>
+
+</body>
+</html>
